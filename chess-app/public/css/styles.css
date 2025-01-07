@@ -1,0 +1,80 @@
+body {
+    background-color: #2e2e2e; /* Dark Grey */
+    color: #d3d3d3; /* Light Grey text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #2e2e2e; /* Dark Grey */
+    color: #d3d3d3; /* Light Grey text */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container {
+    background-color: #3e3e3e; /* Slightly lighter Dark Grey */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #d3d3d3; /* Light Grey text */
+    max-width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+button {
+    background-color: #2e2e2e; /* Dark Grey */
+    color: #d3d3d3; /* Light Grey text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e3e3e; /* Slightly lighter Dark Grey */
+}
+
+input[type="text"], textarea {
+    background-color: #4e4e4e; /* Slightly lighter Dark Grey */
+    color: #d3d3d3; /* Light Grey text */
+    border: 1px solid #d3d3d3; /* Light Grey border */
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+    color: #a9a9a9; /* Dark Grey placeholder text */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #d3d3d3; /* Light Grey text */
+}
+
+table, th, td {
+    border: 1px solid #d3d3d3; /* Light Grey border */
+}
+
+th, td {
+    padding: 5px; /* Reduce padding to make the table more compact */
+    text-align: left;
+}
+
+th {
+    background-color: #2e2e2e; /* Dark Grey */
+    color: #d3d3d3; /* Light Grey text */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #3e3e3e; /* Slightly lighter Dark Grey */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #4e4e4e; /* Another slightly lighter Dark Grey */
+}

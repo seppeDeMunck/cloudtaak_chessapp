@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ButtonController;
 use App\Http\Controllers\PageController;
 
-
-
 Route::get('/page1', [PageController::class, 'showPage1']);
 Route::post('/games', [PageController::class, 'store'])->name('games.store');
 

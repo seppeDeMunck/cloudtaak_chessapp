@@ -3,10 +3,14 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB; // Import the DB facade
+
 use App\Models\Game;
+use Carbon\Carbon;
 
 class GamesTableSeeder extends Seeder
-{
+{   
+    
     /**
      * Run the database seeds.
      *
@@ -14,6 +18,8 @@ class GamesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('games')->truncate();
+
         Game::create([
             'black' => 'seppe',
             'white' => 'jan',

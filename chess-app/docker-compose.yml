@@ -1,4 +1,12 @@
 services:
+  soap-server:
+    build: ./soap-service
+    container_name: soap-server
+    networks:
+      - app-network
+    ports:
+      - "8080:80"
+
   mysql-db:
     image: mysql:8.0
     container_name: mysql-db
