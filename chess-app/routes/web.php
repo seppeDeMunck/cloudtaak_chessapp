@@ -7,8 +7,7 @@ use App\Http\Controllers\Page3Controller;
 use App\Http\Controllers\Page4Controller;
 use App\Http\Controllers\Page5Controller;
 
-// Routes for Page1Controller
-Route::get('/page1', [Page1Controller::class, 'showPage1']);
+Route::get('/page1', [Page1Controller::class, 'showPage1'])->name('page1');
 Route::post('/games', [Page1Controller::class, 'store'])->name('games.store');
 
 // Routes for Page2Controller
@@ -23,6 +22,3 @@ Route::get('/page4', [Page4Controller::class, 'showPage4'])->name('page4');
 Route::get('/page5', [Page5Controller::class, 'showPage5']);
 
 // Default route
-Route::get('/', function () {
-    return view('welcome');
-});

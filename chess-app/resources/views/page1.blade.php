@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess App</title>
+    <title>Page 1</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
@@ -11,54 +11,37 @@
         <h1>Chess App</h1>
     </header>
     <div class="container">
-        <form action="{{ route('games.store') }}" method="POST">
+        <h2>Search Player Games</h2>
+        <form action="{{ route('page1') }}" method="GET">
             @csrf
-            <div class="form-group">
-                <label for="black">Black Player</label>
-                <input type="text" id="black" name="black" required placeholder="Enter black player">
-            </div>
-            <div class="form-group">
-                <label for="white">White Player</label>
-                <input type="text" id="white" name="white" required placeholder="Enter white player">
-            </div>
-            <div class="form-group">
-                <label for="winner">Winner</label>
-                <input type="text" id="winner" name="winner" required placeholder="Enter winner">
-            </div>
-            <div class="form-group">
-                <label for="moves">Moves</label>
-                <textarea id="moves" name="moves" rows="4" required placeholder="Enter moves"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">Add Game</button>
-            </div>
+            <input type="text" name="player" placeholder="Enter player name" required>
+            <button type="submit">Search</button>
         </form>
-
-        <h2>Games List</h2>
-        <div class="table-responsive">
+        @if(isset($games))
+            <h2>Games for {{ $player }}</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Black Player</th>
-                        <th>White Player</th>
+                        <th>Black</th>
+                        <th>White</th>
                         <th>Winner</th>
                         <th>Moves</th>
-                        <th>Played At</th>
+                        <th>Time Played</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($games as $game)
+                    @foreach($games as $game)
                         <tr>
                             <td>{{ $game->black }}</td>
                             <td>{{ $game->white }}</td>
                             <td>{{ $game->winner }}</td>
                             <td>{{ $game->moves }}</td>
-                            <td>{{ $game->created_at ? \Carbon\Carbon::parse($game->created_at)->format('Y-m-d H:i:s') : 'N/A' }}</td>
+                            <td>{{ $game->created_at }}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-        </div>
+        @endif
     </div>
     <footer>
         <p>&copy; 2023 Chess App</p>

@@ -17,12 +17,13 @@ class Page1Controller extends Controller
         ]);
     }
 
-    public function showPage1()
+    public function showPage1(Request $request)
     {
+        $player = $request->input('player');
         try {
-            // Use the SOAP client to get games
-            $games = $this->soapClient->__soapCall('getGames', []);
-            return view('page1', compact('games'));
+            // Use the SOAP client to get games for a specific player
+            $games = $this->soapClient->__soapCall('getPlayerGames', [$player]);
+            return view('page1', compact('games', 'player'));
         } catch (\SoapFault $e) {
             dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
         }

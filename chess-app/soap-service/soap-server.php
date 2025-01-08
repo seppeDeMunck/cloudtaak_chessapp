@@ -17,6 +17,13 @@ class GameService
         return $stmt->fetchAll(PDO::FETCH_OBJ); // Fetch as objects
     }
 
+    public function getPlayerGames($player)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM games WHERE black = :player OR white = :player');
+        $stmt->execute([':player' => $player]);
+        return $stmt->fetchAll(PDO::FETCH_OBJ); // Fetch as objects
+    }
+
     public function addGame($black, $white, $winner, $moves)
     {
         $stmt = $this->pdo->prepare("INSERT INTO games (black, white, winner, moves, created_at) VALUES (:black, :white, :winner, :moves, :created_at)");
