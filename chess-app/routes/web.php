@@ -19,7 +19,7 @@ Route::get('/page3', [Page3Controller::class, 'showPage3']);
 
 // Routes for Page4Controller
 Route::get('/page4', [Page4Controller::class, 'showPage4'])->name('page4');
-Route::post('/calculate-win-chance', [Page4Controller::class, 'calculateWinChance'])->name('calculate.win.chance');// Routes for Page5Controller
+
 Route::get('/page5', [Page5Controller::class, 'showPage5']);
 
 // Default route

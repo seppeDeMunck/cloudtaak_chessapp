@@ -1,6 +1,7 @@
 # filepath: /c:/Users/dmsep/ChessApp/chess-app/RestAPI/winchance.py
 from flask import Flask, request, jsonify
 import mysql.connector
+from decimal import Decimal
 
 app = Flask(__name__)
 
@@ -34,8 +35,24 @@ def calculate_win_chance():
     connection.close()
 
     # Calculate win rates
-    player1_win_rate = (player1_stats['wins'] / player1_stats['total_games']) * 100 if player1_stats['total_games'] > 0 else 0
-    player2_win_rate = (player2_stats['wins'] / player2_stats['total_games']) * 100 if player2_stats['total_games'] > 0 else 0
+    player1_total_games = float(player1_stats['total_games'])
+    player2_total_games = float(player2_stats['total_games'])
+    player1_wins = float(player1_stats['wins'])
+    player2_wins = float(player2_stats['wins'])
+
+    total_games = player1_total_games + player2_total_games
+    if total_games > 0:
+        player1_win_rate = (player1_wins / total_games) * 100
+        player2_win_rate = (player2_wins / total_games) * 100
+    else:
+        player1_win_rate = 0
+        player2_win_rate = 0
+
+    # Normalize win rates to add up to 100%
+    total_win_rate = player1_win_rate + player2_win_rate
+    if total_win_rate > 0:
+        player1_win_rate = (player1_win_rate / total_win_rate) * 100
+        player2_win_rate = (player2_win_rate / total_win_rate) * 100
 
     return jsonify({
         'player1': player1_win_rate,

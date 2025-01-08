@@ -12,7 +12,7 @@
     </header>
     <div class="container">
         <h2>Calculate Win Chance</h2>
-        <form action="{{ route('calculate.win.chance') }}" method="POST">
+        <form action="{{ route('page4') }}" method="GET">
             @csrf
             <input type="text" name="player1" placeholder="Enter first player name" required>
             <input type="text" name="player2" placeholder="Enter second player name" required>
