@@ -1,0 +1,4 @@
+# filepath: /c:/Users/dmsep/ChessApp/chess-app/RestAPI/requirements.txt
+Flask==2.0.1
+Werkzeug==2.0.1
+mysql-connector-python==8.0.26

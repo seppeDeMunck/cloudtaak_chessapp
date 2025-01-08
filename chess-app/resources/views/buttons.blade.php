@@ -47,7 +47,7 @@
                 <p>Explanation for Filler3</p>
             </div>
             <div class="button-item">
-                <a href="/page4"><button>Filler4</button></a>
+                <a href="{{ route('page4') }}"><button>Filler4</button></a>
                 <p>Explanation for Filler4</p>
             </div>
             <div class="button-item">

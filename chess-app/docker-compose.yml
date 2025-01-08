@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   soap-server:
     build: ./soap-service
@@ -21,6 +23,18 @@ services:
       - app-network
     ports:
       - "3306:3306"
+
+  restapi:
+    build:
+      context: ./RestAPI
+      dockerfile: Dockerfile
+    container_name: flask-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./RestAPI:/app
+    networks:
+      - app-network
 
 networks:
   app-network:
