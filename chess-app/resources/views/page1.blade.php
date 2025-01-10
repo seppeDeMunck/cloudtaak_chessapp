@@ -42,6 +42,19 @@
                 </tbody>
             </table>
         @endif
+
+        <h2>Add New Game</h2>
+        <form action="{{ route('page1.store') }}" method="POST">
+            @csrf
+            <input type="text" name="black" placeholder="Black player" required>
+            <input type="text" name="white" placeholder="White player" required>
+            <input type="text" name="winner" placeholder="Winner" required>
+            <textarea name="moves" placeholder="Moves" required></textarea>
+            <button type="submit">Add Game</button>
+        </form>
+        @if(session('success'))
+            <p>{{ session('success') }}</p>
+        @endif
     </div>
     <footer>
         <p>&copy; 2023 Chess App</p>

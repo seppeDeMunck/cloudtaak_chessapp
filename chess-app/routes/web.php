@@ -8,8 +8,7 @@ use App\Http\Controllers\Page4Controller;
 use App\Http\Controllers\Page5Controller;
 
 Route::get('/page1', [Page1Controller::class, 'showPage1'])->name('page1');
-Route::post('/games', [Page1Controller::class, 'store'])->name('games.store');
-
+Route::post('/page1', [Page1Controller::class, 'store'])->name('page1.store');
 // Routes for Page2Controller
 Route::get('/page2', [Page2Controller::class, 'showPage2']);
 

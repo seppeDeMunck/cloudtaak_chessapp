@@ -1,4 +1,5 @@
 <?php
+// filepath: /c:/chessApp/cloudtaak_chessapp/chess-app/app/Http/Controllers/Page1Controller.php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -20,13 +21,16 @@ class Page1Controller extends Controller
     public function showPage1(Request $request)
     {
         $player = $request->input('player');
-        try {
-            // Use the SOAP client to get games for a specific player
-            $games = $this->soapClient->__soapCall('getPlayerGames', [$player]);
-            return view('page1', compact('games', 'player'));
-        } catch (\SoapFault $e) {
-            dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
+        $games = [];
+        if ($player) {
+            try {
+                // Use the SOAP client to get games for a specific player
+                $games = $this->soapClient->__soapCall('getPlayerGames', [$player]);
+            } catch (\SoapFault $e) {
+                dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
+            }
         }
+        return view('page1', compact('games', 'player'));
     }
 
     public function store(Request $request)

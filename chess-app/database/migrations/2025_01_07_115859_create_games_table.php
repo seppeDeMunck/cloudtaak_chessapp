@@ -1,6 +1,5 @@
 <?php
-// filepath: /c:/Users/dmsep/ChessApp/chess-app/database/migrations/xxxx_xx_xx_xxxxxx_create_games_table.php
-
+// filepath: database/migrations/2025_01_07_115859_create_games_table.php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
