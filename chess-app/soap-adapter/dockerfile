@@ -1,0 +1,30 @@
+# filepath: /c:/chessApp/cloudtaak_chessapp/chess-app/soap-adapter/Dockerfile
+FROM python:3.9-slim
+
+# Set work directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libxml2-dev libxslt1-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY adaptor/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy proto files and generate gRPC code
+COPY adaptor/proto ./proto
+RUN python -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/games.proto
+
+# Copy application code
+COPY adaptor/app.py .
+
+# Expose port
+EXPOSE 5000
+
+# Install Gunicorn for production
+RUN pip install gunicorn
+
+# Run the application with Gunicorn
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000"]
