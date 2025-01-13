@@ -33,9 +33,6 @@ class Page3Controller extends Controller
                 $response = $this->soapClient->__soapCall('getPlayerGames', [['player' => $player]]);
                 Log::info('SOAP Response: ' . print_r($response, true));
 
-                // Debugging: Inspect the response
-                // dd($response);
-
                 if (isset($response->Game)) {
                     foreach ($response->Game as $item) {
                         $games[] = [
@@ -60,9 +57,6 @@ class Page3Controller extends Controller
                     }
                 }
 
-                // Debugging: Inspect the games array
-                // dd($games);
-
             } catch (\SoapFault $e) {
                 dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
             }
@@ -70,8 +64,14 @@ class Page3Controller extends Controller
 
         if ($playerId) {
             try {
-                // Use the SOAP client to get feedback for a specific player ID
-                $feedback = $this->soapClient->__soapCall('getPlayerFeedback', [['player_id' => $playerId]]);
+                // Use the SOAP client to get move suggestion for a specific game ID
+                $response = $this->soapClient->__soapCall('getMoveSuggestion', [['game_id' => $playerId]]);
+                Log::info('SOAP Response: ' . print_r($response, true));
+
+                if (isset($response->suggestion)) {
+                    $feedback = (string)$response->suggestion;
+                }
+
             } catch (\SoapFault $e) {
                 dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
             }
