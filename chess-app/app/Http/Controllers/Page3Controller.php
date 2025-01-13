@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Exception;
 
 class Page3Controller extends Controller
 {
@@ -11,11 +10,11 @@ class Page3Controller extends Controller
 
     public function __construct()
     {
-        // Initialize the SOAP client
         $this->soapClient = new \SoapClient(null, [
-            'location' => 'http://soap-adapter:5001/soap',
-            'uri' => 'http://schemas.xmlsoap.org/soap/envelope/',
-            'trace' => 1,
+            'location' => 'http://localhost:5001/soap',
+            'uri'      => 'http://schemas.xmlsoap.org/soap/envelope/',
+            'trace'    => 1,
+            'exceptions' => true,
         ]);
     }
 
@@ -25,13 +24,33 @@ class Page3Controller extends Controller
         $games = [];
 
         if ($player) {
-            $soapRequest = $this->buildSoapRequest('GetGamesByPlayer', ['player' => $player]);
-
             try {
-                $response = $this->soapClient->__doRequest($soapRequest, 'http://soap-adapter:5001/soap', '', 1);
-                $games = $this->parseSoapResponse($response, 'GetGamesByPlayerResponse');
-            } catch (Exception $e) {
-                return redirect()->back()->withErrors(['Exception: ' . $e->getMessage()]);
+                // Modify the SOAP request to match the expected structure
+                $response = $this->soapClient->__soapCall('getPlayerGames', [
+                    ['player' => $player]
+                ]);
+
+                // Debugging: Inspect the response
+                // dd($response);
+
+                if (isset($response->Game)) {
+                    foreach ($response->Game as $item) {
+                        $games[] = [
+                            'id'         => (string)$item->id,
+                            'black'      => (string)$item->black,
+                            'white'      => (string)$item->white,
+                            'winner'     => (string)$item->winner,
+                            'moves'      => (string)$item->moves,
+                            'created_at' => (string)$item->created_at,
+                        ];
+                    }
+                }
+
+                // Debugging: Inspect the games array
+                // dd($games);
+
+            } catch (\SoapFault $e) {
+                dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
             }
         }
 
@@ -44,44 +63,19 @@ class Page3Controller extends Controller
             'game_id' => 'required|integer',
         ]);
 
-        $soapRequest = $this->buildSoapRequest('GetGameFeedback', [
-            'game_id' => $request->input('game_id'),
-        ]);
+        $feedback = null;
 
         try {
-            $response = $this->soapClient->__doRequest($soapRequest, 'http://soap-adapter:5001/soap', '', 1);
-            $feedback = $this->parseSoapResponse($response, 'GetGameFeedbackResponse');
-
-            return redirect()->back()->with('feedback', $feedback);
-        } catch (Exception $e) {
-            return redirect()->back()->withErrors(['Exception: ' . $e->getMessage()]);
-        }
-    }
-
-    private function buildSoapRequest($action, $params)
-    {
-        $xml = new \SimpleXMLElement('<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"/>');
-        $body = $xml->addChild('soap:Body');
-        $actionElement = $body->addChild($action);
-
-        foreach ($params as $key => $value) {
-            $actionElement->addChild($key, $value);
+            $response = $this->soapClient->__soapCall('getGameFeedback', [
+                ['game_id' => $request->input('game_id')]
+            ]);
+            if (isset($response->Body->GetGameFeedbackResponse->feedback)) {
+                $feedback = (string)$response->Body->GetGameFeedbackResponse->feedback;
+            }
+        } catch (\SoapFault $e) {
+            dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
         }
 
-        return $xml->asXML();
-    }
-
-    private function parseSoapResponse($response, $action)
-    {
-        $xml = new \SimpleXMLElement($response);
-        $body = $xml->children('http://schemas.xmlsoap.org/soap/envelope/')->Body;
-        $actionResponse = $body->children()->{$action};
-
-        $result = [];
-        foreach ($actionResponse->children() as $child) {
-            $result[] = (array) $child;
-        }
-
-        return $result;
+        return view('page3', compact('feedback'));
     }
 }

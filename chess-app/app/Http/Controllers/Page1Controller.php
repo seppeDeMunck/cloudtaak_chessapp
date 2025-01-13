@@ -1,5 +1,5 @@
 <?php
-// filepath: /c:/chessApp/cloudtaak_chessapp/chess-app/app/Http/Controllers/Page1Controller.php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -22,6 +22,7 @@ class Page1Controller extends Controller
     {
         $player = $request->input('player');
         $games = [];
+
         if ($player) {
             try {
                 // Use the SOAP client to get games for a specific player
@@ -30,6 +31,7 @@ class Page1Controller extends Controller
                 dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
             }
         }
+
         return view('page1', compact('games', 'player'));
     }
 

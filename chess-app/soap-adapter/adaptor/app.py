@@ -22,10 +22,10 @@ def handle_soap():
 
         # Parse SOAP XML
         xml = etree.fromstring(soap_request)
-        player = xml.find('.//player').text
-
-        if not player:
+        player_element = xml.find('.//item[key="player"]/value')
+        if player_element is None:
             raise ValueError("Player name is missing in the request.")
+        player = player_element.text
 
         # Create gRPC request
         grpc_request = games_pb2.PlayerRequest(player=player)
