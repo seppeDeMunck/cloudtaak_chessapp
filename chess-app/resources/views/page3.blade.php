@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page 3 - Search Player Games & Feedback</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <style>
@@ -22,6 +23,7 @@
         }
         .error-messages {
             color: red;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -37,15 +39,14 @@
             <button type="submit">Search</button>
         </form>
 
-        <br/><hr/><br/>
-
-        <h2>Request Feedback</h2>
-        <form action="{{ route('page3.getGameFeedback') }}" method="GET">
+        <h2>Get Player Feedback</h2>
+        <form action="{{ route('page3') }}" method="GET">
             @csrf
-            <input type="text" name="game_id" placeholder="Enter game ID" required>
+            <input type="text" name="player_id" placeholder="Enter player ID" required>
             <button type="submit">Get Feedback</button>
         </form>
 
+        <!-- Display Error Messages -->
         @if($errors->any())
             <div class="error-messages">
                 <ul>
@@ -56,6 +57,7 @@
             </div>
         @endif
 
+        <!-- Display Games -->
         @if(isset($games) && count($games) > 0)
             <h2>Games for {{ $player }}</h2>
             <table>
@@ -66,7 +68,7 @@
                         <th>White</th>
                         <th>Winner</th>
                         <th>Moves</th>
-                        <th>Created At</th>
+                        <th>Time Played</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,10 +88,18 @@
             <p>No games found for player: {{ $player }}</p>
         @endif
 
+        <!-- Display Feedback -->
         @if(isset($feedback))
             <br/><hr/><br/>
-            <h3>Feedback for Game ID {{ request('game_id') }}</h3>
+            <h3>Feedback for Game ID {{ request('player_id') }}</h3>
             <p>{{ $feedback }}</p>
+        @endif
+
+        <!-- Display Raw Response for Debugging -->
+        @if(isset($response))
+            <br/><hr/><br/>
+            <h3>Raw SOAP Response</h3>
+            <pre>{{ print_r($response, true) }}</pre>
         @endif
     </div>
     <footer>
