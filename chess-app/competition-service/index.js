@@ -58,7 +58,7 @@ function generateRoundRobinRounds(players) {
     const rounds = [];
     const numPlayers = players.length;
     const isOdd = numPlayers % 2 !== 0;
-    const playerList = isOdd ? [...players, 'BYE'] : [...players];
+    const playerList = isOdd ? [...players, 'fill'] : [...players];
     const totalRounds = isOdd ? numPlayers : numPlayers - 1;
 
     for (let round = 0; round < totalRounds; round++) {
@@ -66,7 +66,7 @@ function generateRoundRobinRounds(players) {
         for (let i = 0; i < playerList.length / 2; i++) {
             const home = playerList[i];
             const away = playerList[playerList.length - 1 - i];
-            if (away !== 'BYE') {
+            if (away !== 'fill'&& home !== 'fill') {
                 matches.push([home, away]); // Push array of player names
             }
         }

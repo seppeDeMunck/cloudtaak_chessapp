@@ -276,3 +276,36 @@
 1737990777: New connection from 172.18.0.1:46016 on port 1883.
 1737990777: New client connected from 172.18.0.1:46016 as laravel-client_6797a279a6e53 (p1, c0, k60).
 1737990808: Client laravel-client_6797a279a6e53 closed its connection.
+1737991045: New connection from 172.18.0.1:43962 on port 1883.
+1737991045: New client connected from 172.18.0.1:43962 as laravel-client_6797a385899e4 (p1, c1, k60).
+1737991076: Client laravel-client_6797a385899e4 closed its connection.
+1737991497: New connection from 172.18.0.1:39798 on port 1883.
+1737991497: New client connected from 172.18.0.1:39798 as laravel-client_6797a549d5958 (p1, c1, k60).
+1737991528: Client laravel-client_6797a549d5958 closed its connection.
+1737991581: New connection from 172.18.0.1:40498 on port 1883.
+1737991581: New client connected from 172.18.0.1:40498 as laravel-client_6797a59d31da4 (p1, c1, k60).
+1737991611: Client laravel-client_6797a59d31da4 closed its connection.
+1737991726: New connection from 172.18.0.1:45944 on port 1883.
+1737991726: New client connected from 172.18.0.1:45944 as laravel-client_6797a62e73c63 (p1, c1, k60).
+1737991726: Client laravel-client_6797a62e73c63 disconnected.
+1737991731: New connection from 172.18.0.1:47342 on port 1883.
+1737991731: New client connected from 172.18.0.1:47342 as laravel-client_6797a6330281f (p1, c1, k60).
+1737991731: Client laravel-client_6797a6330281f disconnected.
+1737991737: New connection from 172.18.0.1:47344 on port 1883.
+1737991737: New client connected from 172.18.0.1:47344 as laravel-client_6797a6392194c (p1, c1, k60).
+1737991737: Client laravel-client_6797a6392194c disconnected.
+1737991788: mosquitto version 2.0.20 terminating
+1737991788: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1737991816: mosquitto version 2.0.20 starting
+1737991816: Config loaded from /mosquitto/config/mosquitto.conf.
+1737991816: Opening ipv4 listen socket on port 1883.
+1737991816: Opening ipv6 listen socket on port 1883.
+1737991816: mosquitto version 2.0.20 running
+1737991816: New connection from 172.18.0.5:44510 on port 1883.
+1737991816: New client connected from 172.18.0.5:44510 as mqttjs_e04020cf (p2, c1, k60).
+1737991828: New connection from 172.18.0.1:39466 on port 1883.
+1737991828: New client connected from 172.18.0.1:39466 as laravel-client_6797a69465e01 (p1, c1, k60).
+1737991828: Client laravel-client_6797a69465e01 disconnected.
+1737991856: New connection from 172.18.0.1:60920 on port 1883.
+1737991856: New client connected from 172.18.0.1:60920 as laravel-client_6797a6b06171a (p1, c1, k60).
+1737991856: Client laravel-client_6797a6b06171a disconnected.
