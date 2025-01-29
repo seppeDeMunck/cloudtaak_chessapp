@@ -42,11 +42,20 @@
                 $('input[name="dataType"]:checked').each(function() {
                     dataTypes.push($(this).val());
                 });
+
+                if (dataTypes.length === 0) {
+                    $('#result').html('<p>Please select at least one data type.</p>');
+                    return;
+                }
+
+                var queryFields = dataTypes.join(' ');
+                var query = `query { ${queryFields} }`;
+
                 $.ajax({
                     url: '/api/get-wiki-data',
                     method: 'POST',
                     data: {
-                        dataTypes: dataTypes,
+                        query: query,
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {

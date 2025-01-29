@@ -18,14 +18,7 @@ class Page5Controller extends Controller
     {
         Log::info('getWikiData method called');
 
-        $query = <<<GRAPHQL
-query Opening {
-    opening
-    midgame
-    endgame
-}
-GRAPHQL;
-
+        $query = $request->input('query');
         Log::info('GraphQL Query: ' . $query);
 
         $payload = [
