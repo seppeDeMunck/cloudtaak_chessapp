@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   app-network:
     driver: bridge
@@ -89,6 +87,15 @@ services:
       - ./mosquitto/log:/mosquitto/log
     networks:
       - app-network
+
+  go-graphql-service:
+    build: ./go-graphql-service
+    container_name: go-graphql-service
+    ports:
+      - "4000:4000"
+    networks:
+      - app-network
+
 
 
 volumes:

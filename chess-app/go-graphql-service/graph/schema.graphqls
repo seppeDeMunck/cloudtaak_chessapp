@@ -1,0 +1,12 @@
+type Query {
+    opening: String
+    midgame: String
+    endgame: String
+}
+
+type Wiki {
+    topic: String!
+    opening: String
+    midgame: String
+    endgame: String
+}
