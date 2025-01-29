@@ -524,3 +524,68 @@
 1738161591: mosquitto version 2.0.20 running
 1738161591: New connection from 172.18.0.3:54834 on port 1883.
 1738161591: New client connected from 172.18.0.3:54834 as mqttjs_703100f2 (p2, c1, k60).
+1738163086: mosquitto version 2.0.20 terminating
+1738163086: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738163150: mosquitto version 2.0.20 starting
+1738163150: Config loaded from /mosquitto/config/mosquitto.conf.
+1738163150: Opening ipv4 listen socket on port 1883.
+1738163150: Opening ipv6 listen socket on port 1883.
+1738163150: mosquitto version 2.0.20 running
+1738163150: New connection from 172.18.0.2:37138 on port 1883.
+1738163150: New client connected from 172.18.0.2:37138 as mqttjs_43793237 (p2, c1, k60).
+1738163820: mosquitto version 2.0.20 terminating
+1738163820: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738163838: mosquitto version 2.0.20 starting
+1738163838: Config loaded from /mosquitto/config/mosquitto.conf.
+1738163838: Opening ipv4 listen socket on port 1883.
+1738163838: Opening ipv6 listen socket on port 1883.
+1738163838: mosquitto version 2.0.20 running
+1738163838: New connection from 172.18.0.8:46376 on port 1883.
+1738163838: New client connected from 172.18.0.8:46376 as mqttjs_77050a0c (p2, c1, k60).
+1738163941: mosquitto version 2.0.20 terminating
+1738163941: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738165465: mosquitto version 2.0.20 starting
+1738165465: Config loaded from /mosquitto/config/mosquitto.conf.
+1738165465: Opening ipv4 listen socket on port 1883.
+1738165465: Opening ipv6 listen socket on port 1883.
+1738165465: mosquitto version 2.0.20 running
+1738165466: New connection from 172.18.0.7:41004 on port 1883.
+1738165466: New client connected from 172.18.0.7:41004 as mqttjs_9b3e8b49 (p2, c1, k60).
+1738165656: mosquitto version 2.0.20 terminating
+1738165656: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738165716: mosquitto version 2.0.20 starting
+1738165716: Config loaded from /mosquitto/config/mosquitto.conf.
+1738165716: Opening ipv4 listen socket on port 1883.
+1738165716: Opening ipv6 listen socket on port 1883.
+1738165716: mosquitto version 2.0.20 running
+1738165716: New connection from 172.18.0.4:42780 on port 1883.
+1738165716: New client connected from 172.18.0.4:42780 as mqttjs_4fa2daf1 (p2, c1, k60).
+1738165764: mosquitto version 2.0.20 terminating
+1738165764: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738165826: mosquitto version 2.0.20 starting
+1738165826: Config loaded from /mosquitto/config/mosquitto.conf.
+1738165826: Opening ipv4 listen socket on port 1883.
+1738165826: Opening ipv6 listen socket on port 1883.
+1738165826: mosquitto version 2.0.20 running
+1738165826: New connection from 172.18.0.7:48356 on port 1883.
+1738165826: New client connected from 172.18.0.7:48356 as mqttjs_73bc24e3 (p2, c1, k60).
+1738165873: mosquitto version 2.0.20 terminating
+1738165873: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738165889: mosquitto version 2.0.20 starting
+1738165889: Config loaded from /mosquitto/config/mosquitto.conf.
+1738165889: Opening ipv4 listen socket on port 1883.
+1738165889: Opening ipv6 listen socket on port 1883.
+1738165889: mosquitto version 2.0.20 running
+1738165889: New connection from 172.18.0.2:39156 on port 1883.
+1738165889: New client connected from 172.18.0.2:39156 as mqttjs_c0ed3463 (p2, c1, k60).
+1738165945: mosquitto version 2.0.20 terminating
+1738165945: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1738166021: mosquitto version 2.0.20 starting
+1738166021: Config loaded from /mosquitto/config/mosquitto.conf.
+1738166021: Opening ipv4 listen socket on port 1883.
+1738166021: Opening ipv6 listen socket on port 1883.
+1738166021: mosquitto version 2.0.20 running
+1738166022: New connection from 172.18.0.6:35836 on port 1883.
+1738166022: New client connected from 172.18.0.6:35836 as mqttjs_7041a042 (p2, c1, k60).
+1738167246: mosquitto version 2.0.20 terminating
+1738167246: Saving in-memory database to /mosquitto/data//mosquitto.db.

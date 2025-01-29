@@ -1,0 +1,28 @@
+FROM rust:1.84.0 as builder
+
+WORKDIR /usr/src/app
+
+# Copy the source code
+COPY . .
+
+# Build the application
+RUN cargo build --release
+
+# Use a base image with a newer version of glibc for the final container
+FROM debian:bookworm-slim
+
+WORKDIR /usr/src/app
+
+# Install OpenSSL and CA certificates
+RUN apt-get update && \
+    apt-get install -y openssl ca-certificates && \
+    apt-get clean
+
+# Copy the built binary from the builder stage
+COPY --from=builder /usr/src/app/target/release/stockfishcontainer .
+
+# Expose the port
+EXPOSE 9000
+
+# Run the application
+CMD ["./stockfishcontainer"]

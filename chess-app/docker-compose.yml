@@ -96,6 +96,15 @@ services:
     networks:
       - app-network
 
+  stockfishcontainer:
+    build:
+      context: ./stockfishcontainer
+    container_name: stockfishcontainer
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+
 
 
 volumes:
