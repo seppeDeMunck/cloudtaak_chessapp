@@ -65,7 +65,7 @@ class Page3Controller extends Controller
             }
         }
 
-        return view('page3', compact('games', 'player', 'feedback', 'playerId'));
+        return view('page3', compact('games', 'player', 'feedback', 'playerId', 'response'));
     }
 
     /**
