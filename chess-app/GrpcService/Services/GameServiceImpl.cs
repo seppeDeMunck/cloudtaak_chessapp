@@ -47,7 +47,7 @@ namespace GrpcService.Services
             var random = new Random();
             var moves = new[] { "e4", "d4", "Nf3", "c4", "g3" };
             var chosenMove = moves[random.Next(moves.Length)];
-            var number = random.Next(1, 100);
+            var number = random.Next(1, 20);
 
             return Task.FromResult(new MoveResponse
             {
