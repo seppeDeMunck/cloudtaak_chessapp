@@ -39,8 +39,8 @@
                 <p>look up someone's match history</p>
             </div>
             <div class="button-item">
-                <a href="{{ route('page2') }}"><button>competition setup</button></a>
-                <p>generates swiss tournamet for a given group</p>
+                <a href="{{ route('page2') }}"><button>competition generator</button></a>
+                <p>generates swiss tournament for a given group</p>
             </div>
             <div class="button-item">
                 <a href="{{ route('page3') }}"><button>game feedback</button></a>
