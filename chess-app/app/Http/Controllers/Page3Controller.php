@@ -49,7 +49,7 @@ class Page3Controller extends Controller
                 dd($e->getMessage(), $this->soapClient->__getLastRequest(), $this->soapClient->__getLastResponse());
             }
         }
-
+        $response = '';
         if ($playerId) {
             try {
                 $response = $this->soapClient->__soapCall('getMoveSuggestion', [['game_id' => $playerId]]);
