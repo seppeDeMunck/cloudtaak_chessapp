@@ -104,7 +104,7 @@
         </form>
     </div>
     <footer>
-        <p>&copy; 2023 Chess App</p>
+        <p>&copy; seppe's schaak app</p>
     </footer>
 </body>
 </html>

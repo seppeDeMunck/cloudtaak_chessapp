@@ -35,29 +35,33 @@
     <div class="container">
         <div class="button-container">
             <div class="button-item">
-                <a href="/page1"><button>Filler1</button></a>
-                <p>Explanation for Filler1</p>
+                <a href="{{ route('page1') }}"><button>Page 1</button></a>
+                <p>match history</p>
             </div>
             <div class="button-item">
-                <a href="/page2"><button>Filler2</button></a>
-                <p>Explanation for Filler2</p>
+                <a href="{{ route('page2') }}"><button>Page 2</button></a>
+                <p>competition setup</p>
             </div>
             <div class="button-item">
-                <a href="/page3"><button>Filler3</button></a>
-                <p>Explanation for Filler3</p>
+                <a href="{{ route('page3') }}"><button>Page 3</button></a>
+                <p>game feedback</p>
             </div>
             <div class="button-item">
-                <a href="{{ route('page4') }}"><button>Filler4</button></a>
-                <p>Explanation for Filler4</p>
+                <a href="{{ route('page4') }}"><button>Page 4</button></a>
+                <p>winchance calculator</p>
             </div>
             <div class="button-item">
-                <a href="/page5"><button>Filler5</button></a>
-                <p>Explanation for Filler5</p>
+                <a href="{{ route('page5') }}"><button>Page 5</button></a>
+                <p>chess wiki</p>
+            </div>
+            <div class="button-item">
+                <a href="{{ route('page6') }}"><button>Page 6</button></a>
+                <p>board evaluation</p>
             </div>
         </div>
     </div>
     <footer>
-        <p>&copy; 2023 Chess App</p>
+        <p>&copy; seppe's schaak app</p>
     </footer>
 </body>
 </html>

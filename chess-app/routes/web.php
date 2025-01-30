@@ -6,8 +6,10 @@ use App\Http\Controllers\Page3Controller;
 use App\Http\Controllers\Page4Controller;
 use App\Http\Controllers\Page5Controller;
 use App\Http\Controllers\Page6Controller;
+use App\Http\Controllers\ButtonController;
 
 
+Route::get('/buttons', [ButtonController::class, 'showButtons'])->name('buttons');
 
 Route::get('/page1', [Page1Controller::class, 'showPage1'])->name('page1');
 Route::post('/page1', [Page1Controller::class, 'store'])->name('page1.store');

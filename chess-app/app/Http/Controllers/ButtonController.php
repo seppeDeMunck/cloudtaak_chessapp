@@ -35,4 +35,9 @@ class ButtonController extends Controller
     {
         return view('page5');
     }
+
+    public function page6()
+    {
+        return view('page6');
+    }
 }
