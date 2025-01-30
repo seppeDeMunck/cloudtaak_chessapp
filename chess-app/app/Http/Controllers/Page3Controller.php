@@ -54,10 +54,8 @@ class Page3Controller extends Controller
             try {
                 $response = $this->soapClient->__soapCall('getMoveSuggestion', [['game_id' => $playerId]]);
                 Log::info('Raw SOAP Response for Move Suggestion: ' . print_r($response, true));
-
-                if (isset($response->suggestion)) {
-                    $feedback = (string)$response->suggestion;
-                }
+                $feedback = $response;
+            
 
             } catch (\SoapFault $e) {
                 Log::error('SOAP Error (Move Suggestion): ' . $e->getMessage());

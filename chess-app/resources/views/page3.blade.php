@@ -94,13 +94,6 @@
             <h3>Feedback for Game ID {{ request('player_id') }}</h3>
             <p>{{ $feedback }}</p>
         @endif
-
-        <!-- Display Raw Response for Debugging -->
-        @if(isset($response))
-            <br/><hr/><br/>
-            <h3>Raw SOAP Response</h3>
-            <pre>{{ print_r($response, true) }}</pre>
-        @endif
     </div>
     <footer>
         <p>&copy; seppe's schaak app</p>
